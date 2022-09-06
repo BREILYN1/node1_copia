@@ -39,13 +39,14 @@ pipeline {
         maven 'maven' 
     }
     stages{
-        stage("verify tooling")
+        stage('verify tooling'){
         steps {
             sh '''
                 docker version
                 docker info
                 docker compose version
             '''
+            }
         }
     }
 }
