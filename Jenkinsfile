@@ -38,11 +38,13 @@ pipeline {
     stages{
         stage('verify tooling'){
             steps {
-                shell '''
-                    docker version
-                    docker info
-                    docker compose version
-                '''
+                script {
+                    shell '''
+                        docker version
+                        docker info
+                        docker compose version
+                    '''
+                }
             }
         }
     }
