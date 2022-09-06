@@ -35,9 +35,6 @@
 // }
 pipeline {
     agent any
-    tools{
-        maven 'maven' 
-    }
     stages{
         stage('verify tooling'){
             steps {
