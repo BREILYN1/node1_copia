@@ -33,23 +33,35 @@
 //         }
 //     }
 // }
+// pipeline {
+//     agent any
+//     stages{
+//         stage('verify tooling'){
+//             steps {
+//                 script {
+//                     sh ''''
+//                         docker version
+//                         docker info
+//                         docker compose version
+//                     '''
+//                 }
+//             }
+//         }
+//         stage ("prueba echo") {
+//             steps{
+//                 echo "hola"
+//             }
+//         }
+//     }
+// }
 pipeline {
-    agent any
-    stages{
-        stage('verify tooling'){
+    agent {
+        docker { image 'node:14-alpine' }
+    }
+    stages {
+        stage('Test') {
             steps {
-                script {
-                    sh ''''
-                        docker version
-                        docker info
-                        docker compose version
-                    '''
-                }
-            }
-        }
-        stage ("prueba echo") {
-            steps{
-                echo "hola"
+                sh 'node --version'
             }
         }
     }
