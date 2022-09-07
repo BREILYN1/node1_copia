@@ -52,5 +52,10 @@ pipeline {
                 echo "hola"
             }
         }
+        stage('Build') { 
+            steps { 
+                sh 'make' 
+            }
+        }
     }
 }
