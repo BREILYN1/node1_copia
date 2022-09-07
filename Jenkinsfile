@@ -58,6 +58,7 @@ pipeline {
                     docker build -t musica_img1 .
                 }
             }
+            }
         }
         stage ("prueba run"){
             steps{
