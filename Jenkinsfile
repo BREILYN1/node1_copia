@@ -52,18 +52,5 @@ pipeline {
                 echo "hola"
             }
         }
-        stage ("prueba build"){
-            steps{
-                script {
-                    docker build -t musica_img1 .
-            }
-        }
-        stage ("prueba run"){
-            steps{
-                script {
-                    docker run -it -d --name musica_cont -p 8000:8000 musica_img 
-                }
-            }
-        }
     }
 }
