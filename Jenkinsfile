@@ -54,7 +54,7 @@ pipeline {
         }
         stage('Build') { 
             steps { 
-                sh 'make' 
+                docker build -t musica_img1 .
             }
         }
     }
