@@ -52,9 +52,11 @@ pipeline {
                 echo "hola"
             }
         }
-        stage('Build') { 
-            steps { 
-                docker build -t musica_img1 .
+        stage ("prueba build"){
+            steps{
+                script {
+                    docker build -t musica_img1 .
+                }
             }
         }
     }
