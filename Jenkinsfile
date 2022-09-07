@@ -47,7 +47,7 @@ pipeline {
                 }
             }
         }
-        stage{
+        stage ("prueba echo") {
             steps{
                 echo "hola"
             }
