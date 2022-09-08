@@ -54,27 +54,16 @@
 //         }
 //     }
 // }
-// pipeline {
-//     agent {
-//         docker { image 'node:14-alpine' }
-//     }
-//     stages {
-//         stage('Test') {
-//             steps {
-//                 sh 'node --version'
-//             }
-//         }
-//     }
-// }
 pipeline {
-    agent { label 'ubuntu' }
+    agent {
+        docker { image 'node:14-alpine' }
+    }
     stages {
-        stage {
+        stage('Test') {
             steps {
-                script {
-                    shell  'echo $USER  '
-                    shell 'docker version'            
-                }    
+                shell 'node --version'
+                shell  'echo $USER  '
+                shell 'docker version'  
             }
         }
     }
