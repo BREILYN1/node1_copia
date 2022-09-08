@@ -33,27 +33,27 @@
 //         }
 //     }
 // }
-pipeline {
-    agent any
-    stages{
-        stage('verify tooling'){
-            steps {
-                script {
-                    shell ''''
-                        docker version
-                        docker info
-                        docker compose version
-                    '''
-                }
-            }
-        }
-        stage ("prueba echo") {
-            steps{
-                echo "hola"
-            }
-        }
-    }
-}
+// pipeline {
+//     agent any
+//     stages{
+//         stage('verify tooling'){
+//             steps {
+//                 script {
+//                     shell    ''''
+//                         docker version
+//                         docker info
+//                         docker compose version
+//                     '''
+//                 }
+//             }
+//         }
+//         stage ("prueba echo") {
+//             steps{
+//                 echo "hola"
+//             }
+//         }
+//     }
+// }
 // pipeline {
 //     agent {
 //         docker { image 'node:14-alpine' }
@@ -66,3 +66,19 @@ pipeline {
 //         }
 //     }
 // }
+pipeline {
+    agent { label 'ubuntu' }
+    stages {
+        stage {
+            steps {
+                script {
+                    shell  'echo $USER  '
+                    shell 'docker version'            
+                }    
+            }
+        }
+    }
+}
+
+
+
