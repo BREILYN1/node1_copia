@@ -64,7 +64,7 @@
 pipeline {
     agent {
         // docker { image 'node:14-alpine' }
-        shell 'docker build -t 1023830656/musica_img1 .'
+        sh 'docker build -t 1023830656/musica_img1 .'
     }
     stages {
         stage('Test') {
