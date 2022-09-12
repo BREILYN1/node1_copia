@@ -33,47 +33,46 @@
 //         }
 //     }
 // }
-// pipeline {
-//     agent any
-//     stages{
-//         stage('verify tooling'){
-//             steps {
-//                 script {
-//                     shell    ''''
-//                         shell  'echo $USER  '
-//                         shell 'docker version'  
-//                     '''
-//                 }
-//             }
-//         }
-//         stage ( 'checkout' ) {
-//             steps{
-//                 git branches: 'main',
-//                 url 'https://github.com/BREILYN1/node1_copia.git'
-//                 shell 'pwd'
-//                 shell 'ls -la'
-//             }
-//         }
-//         stage ("prueba echo") {
-//             steps{
-//                 echo "hola"
-//             }
-//         }
-//     }
-// }
 pipeline {
-    agent {
-        // docker { image 'node:14-alpine' }
-        sh 'docker build -t 1023830656/musica_img1 .'
-    }
-    stages {
-        stage('Test') {
+    agent any
+    stages{
+        stage('verify tooling'){
             steps {
-                shell 'node --version'
+                script {
+                    shell    ''''
+                        shell  'echo $USER  '
+                        shell 'docker version'  
+                    '''
+                }
+            }
+        }
+        stage ( 'checkout' ) {
+            steps{
+                git branches: 'main',
+                url 'https://github.com/BREILYN1/node1_copia.git'
+                shell 'pwd'
+                shell 'ls -la'
+            }
+        }
+        stage ("prueba echo") {
+            steps{
+                echo "hola"
             }
         }
     }
 }
+// pipeline {
+//     agent {
+//         docker { image 'node:14-alpine' }
+//     }
+//     stages {
+//         stage('Test') {
+//             steps {
+//                 shell 'node --version'
+//             }
+//         }
+//     }
+// }
 
 
 
