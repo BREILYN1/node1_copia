@@ -63,7 +63,7 @@
 // }
 pipeline {
     agent {
-        docker push { image 'node:14-alpine' }
+        docker { image 'node:14-alpine' }
     }
     stages {
         stage('Test') {
