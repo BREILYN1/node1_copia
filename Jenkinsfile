@@ -48,8 +48,8 @@ pipeline {
         }
         stage ( 'checkout' ) {
             steps{
-                git branches: 'main',
-                url 'https://github.com/BREILYN1/node1_copia.git'
+                // git branches: 'main',
+                // url 'https://github.com/BREILYN1/node1_copia.git'
                 shell 'pwd'
                 shell 'ls -la'
             }
