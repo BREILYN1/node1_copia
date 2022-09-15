@@ -7,27 +7,27 @@ pipeline {
         stage('Build Maven'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/BREILYN1/node1_copia.git']]])
-                shell 'mvn -Dmaven.test.failure.ignore=true clean package'
+                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
             }
         }
         stage('Build image'){
             steps{
                 script{
-                    shell 'docker build -t 1023830656/musica_img1 .'
+                    sh 'docker build -t 1023830656/musica_img1 .'
                 }
             }
         }
         stage('tag image'){
             steps{
                 script{
-                    shell 'docker tag musica_img1 1023830656/musica_img1' 
+                    sh 'docker tag musica_img1 1023830656/musica_img1' 
                 }
             }
         }
         stage('push image'){
             steps{
                 script{
-                    shell 'docker push 1023830656/musica_img1 ' 
+                    sh 'docker push 1023830656/musica_img1 ' 
                 }
             }
         }
@@ -48,8 +48,7 @@ pipeline {
 //         }
 //         stage ( 'checkout' ) {
 //             steps{
-//                 // git branches: 'main',
-//                 // url 'https://github.com/BREILYN1/node1_copia.git'
+//                  git([url: 'https://github.com/BREILYN1/node1_copia.git', branch: 'main'])
 //                 shell 'pwd'
 //                 shell 'ls -la'
 //             }
