@@ -7,13 +7,13 @@ pipeline {
         stage('Build Maven'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/BREILYN1/node1_copia.git']]])
-                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
+                sh 'mvn "-Dmaven.test.failure.ignore=true" "clean package"'
             }
         }
         stage('Build image'){
             steps{
                 script{
-                    sh 'docker build -t 1023830656/musica_img1 .'
+                    sh 'docker build -t 1023830656/musica_img1   .'
                 }
             }
         }
